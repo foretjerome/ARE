@@ -1,0 +1,466 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<name>D12_HORS_GAMME</name>
+	<artifactId>D12_HORS_GAMME</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<!-- archetype version : 1.8 -->
+
+	<parent>
+		<groupId>fr.pe.d12</groupId>
+		<artifactId>D12-commun</artifactId>
+		<version>17.4.81-SNAPSHOT</version>
+		<relativePath>../D12-commun</relativePath>
+	</parent>
+
+	<properties>
+		<!-- Aquarius -->
+		<generateurs.sld.maven.architectureApplicative.version>1.9.13</generateurs.sld.maven.architectureApplicative.version>
+		<output.folder>${project.basedir}</output.folder>
+		<domaine>Cali</domaine>
+		<!-- Cesar -->
+		<plugin.cesar.version>2.1.0</plugin.cesar.version>
+		<wiki.url>http://cesar.pe.intra:10951/catalogue</wiki.url>
+		<wiki.user>cservices</wiki.user>
+		<wiki.mdp>cservices</wiki.mdp>
+		<modele.domaine.path>${project.basedir}/modeles/Cali/Cali.domaine</modele.domaine.path>
+		<composant.promotion>${project.version}</composant.promotion>
+		<composant.version>1.0</composant.version>
+		<versionning>mono</versionning>
+	</properties>
+
+	<build>
+
+		<plugins>
+			<plugin>
+               <artifactId>maven-clean-plugin</artifactId>
+               <configuration>
+                      <filesets>
+                             <fileset>
+                                    <directory>src/gen/java</directory>
+                                    <followSymlinks>false</followSymlinks>
+                                    <includes>
+                                          <include>**/*.java</include>
+                                    </includes>
+                             </fileset>
+                      </filesets>
+               </configuration>
+            </plugin>
+			
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-shared-resources</id>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<outputDirectory>publication/domaine</outputDirectory>
+							<includeArtifacIds>dr1-sldcli-modele,D11-client-SLD,D90-client-SLD,D12DAL-client-SLD,D98-client-SLD,D01-sldcli-clientSLDV4,D10-client-SLD,DemandesAidesIndividu-client-SLD</includeArtifacIds>
+							<includeGroupIds>fr.pe.dr1.publication,fr.pe.d11,fr.pe.d90,fr.pe.d12dal,fr.pe.d98.ind,fr.pe.d01.ind,fr.pe.d10,fr.pe.internet.de.services</includeGroupIds>
+							<includeTypes>zip</includeTypes>
+							<excludeTransitive>true</excludeTransitive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>fr.pe.ing.generateurs.sld.maven</groupId>
+				<artifactId>architectureApplicativeSLDV4</artifactId>
+				<version>${generateurs.sld.maven.architectureApplicative.version}</version>
+				<configuration>
+					<pathModele>${project.basedir}/modeles/${domaine}/${domaine}.domaine</pathModele>
+					<outputFolder>${output.folder}</outputFolder>
+					<verbose>true</verbose>
+					<generationArchitectureApplicativeDomaine>true</generationArchitectureApplicativeDomaine>
+					<generationArchitectureApplicativeAbstrait>true</generationArchitectureApplicativeAbstrait>
+					<generationArchitectureApplicativeConcret>true</generationArchitectureApplicativeConcret>
+					<excludes>
+						<!-- <exclude>Domaine_Batch</exclude> <exclude>Domaine_Constantes</exclude> 
+							<exclude>Domaine_DDL</exclude> <exclude>Domaine_DDL_Pivot</exclude> <exclude>Domaine_DDL_Constantes</exclude> 
+							<exclude>Domaine_Enumerations</exclude> <exclude>Domaine_Flux</exclude> <exclude>Domaine_MappingHibernate</exclude> 
+							<exclude>Domaine_Souscription</exclude> <exclude>Abstrait_Facade</exclude> 
+							<exclude>Abstrait_Erreur</exclude> <exclude>Abstrait_ManagersFlux</exclude> 
+							<exclude>Abstrait_ManagersPersistance</exclude> <exclude>Abstrait_OTD</exclude> 
+							<exclude>Abstrait_Persistance</exclude>  
+							<exclude>Concret_Facade</exclude> <exclude>Concret_Erreur</exclude> <exclude>Concret_ManagersFlux</exclude> 
+							<exclude>Concret_ManagersPersistance</exclude> <exclude>Concret_OTD</exclude> 
+							<exclude>Concret_Persistance</exclude> 
+						<exclude>Abstrait_ClientsDomainesAppeles</exclude> -->	
+						<exclude>Concret_ManagersFlux</exclude>
+						<exclude>Concret_ClientsDomainesAppeles</exclude> 
+						<exclude>Concret_ManagersPersistance</exclude>
+						<exclude>Concret_Persistance</exclude>
+						<exclude>Domaine_Enumerations</exclude>
+						<exclude>Domaine_MappingHibernate</exclude>
+						<exclude>Domaine_Batch</exclude>
+						<exclude>Domaine_Constantes</exclude>
+						<exclude>Domaine_DDL</exclude>
+						<exclude>Domaine_DDL_Pivot</exclude>
+						<exclude>Domaine_DDL_Constantes</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>creationArchitectureApplicativeSLDV4</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*.contrib*</exclude>
+						<exclude>**/*.keep*</exclude>
+						<exclude>**/*.bak*</exclude>
+						<exclude>**/*.checkedout*</exclude>
+						<exclude>**/*.mklm*</exclude>
+						<exclude>**/*.old*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<configuration>
+							<target>
+								<!-- Liste des fichiers de mapping -->
+								<fileset id="liste_fichiers_jdo" dir="${basedir}/target/enhance">
+									<include name="*.jdo" />
+								</fileset>
+								<pathconvert property="liste_metadatas" refid="liste_fichiers_jdo" />
+								<!-- Classpath -->
+								<path id="enhance.cp">
+									<!-- Ajouter ici les dependances vers les jars enrichis -->
+									<pathelement path="${javax.jdo:jdo-api:jar}" />
+									<pathelement path="${lido:lido-lic:jar}" />
+									<pathelement path="${lido:lido-api:jar}" />
+									<pathelement path="${lido:lido-dev:jar}" />
+									<pathelement path="${lido:lido-rt:jar}" />
+									<pathelement path="${lido:lido-api:jar}" />
+									<pathelement path="${joda-time:joda-time:jar}" />
+									<pathelement path="${fr.pe.fmk.sld.lib:tp-commun:jar}" />
+									<pathelement path="${fr.pe.d12:UtilitairesCali:jar}" />
+								</path>
+								<path id="enhance.classesToEnhance.cp">
+									<pathelement path="target/classes" />
+								</path>
+								<taskdef file="src\main\resources\xic\lido.tasks"
+									classpathref="enhance.cp">
+								</taskdef>
+								<!-- Ne pas mettre les fichiers bouchons ! -->
+								<enhance targetPathRef="enhance.classesToEnhance.cp"
+									metadata="${liste_metadatas}" verbose="false" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>add-src-folder</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/gen/java</source>
+								<source>src/genSumatra/java</source>
+							</sources>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>mapping</id>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<descriptors>
+								<descriptor>src/main/resources/assembly/xic.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+	<dependencies>
+		<!-- **************************************************************
+			 ******************** Dependances Externes ********************
+			 ************************************************************** -->
+
+		<dependency>
+			<groupId>fr.pe.d28</groupId>
+			<artifactId>D28-client-SLD</artifactId>
+			<version>15.4.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>fr.pe.d11</groupId>
+			<artifactId>D11-client-SLD</artifactId>
+			<version>17.4.3</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d11</groupId>
+			<artifactId>D11-client-SLD</artifactId>
+			<version>17.4.3</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.dr1.publication</groupId>
+			<artifactId>dr1-sldcli-modele</artifactId>
+			<version>17.2.1</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d12dal</groupId>
+			<artifactId>D12DAL-client-SLD</artifactId>
+			<version>17.4.4</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d90</groupId>
+			<artifactId>D90-client-SLD</artifactId>
+			<version>17.4.11</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d90</groupId>
+			<artifactId>D90-client-SLD</artifactId>
+			<version>17.4.11</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d98.ind</groupId>
+			<artifactId>D98-client-SLD</artifactId>
+			<version>15.4.4</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d98.ind</groupId>
+			<artifactId>D98-client-SLD</artifactId>
+			<version>15.4.4</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d01.ind</groupId>
+			<artifactId>D01-sldcli-clientSLDV4</artifactId>
+			<version>1.0.17</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+			<dependency>
+			<groupId>fr.pe.d01.ind</groupId>
+			<artifactId>D01-sldcli-clientSLDV4</artifactId>
+			<version>1.0.17</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d10</groupId>
+			<artifactId>D10-client-SLD</artifactId>
+			<version>13.3.1</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.d10</groupId>
+			<artifactId>D10-client-SLD</artifactId>
+			<version>13.3.1</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fr.pe.internet.de.services</groupId>
+			<artifactId>DemandesAidesIndividu-client-SLD</artifactId>
+			<version>154.0.2</version>
+			<classifier>publication</classifier>
+			<type>zip</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>fr.pe.d12</groupId>
+			<artifactId>UtilitairesCali</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>publication-CESAR</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>fr.pe.cesar</groupId>
+						<artifactId>cesar-maven-plugin</artifactId>
+						<version>${plugin.cesar.version}</version>
+						<configuration>
+							<wiki.url>${wiki.url}</wiki.url>
+							<wiki.user>${wiki.user}</wiki.user>
+							<wiki.mdp>${wiki.mdp}</wiki.mdp>
+							<modeles.path>${modele.domaine.path}</modeles.path>
+							<versionning>${versionning}</versionning>
+							<composant.groupId>${project.groupId}</composant.groupId>
+							<composant.artifactId>${project.artifactId}</composant.artifactId>
+							<composant.promotion>${composant.promotion}</composant.promotion>
+							<composant.version>${composant.version}</composant.version>
+							<timeoutInSeconds>600</timeoutInSeconds>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>process-classes</phase>
+								<goals>
+									<goal>publicationDocumentationDomaine</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

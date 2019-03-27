@@ -1,0 +1,71 @@
+package fr.unedic.cali.autresdoms.d90.dom.population;
+
+import fr.unedic.cali.autresdoms.d90.dom.spec.PopulationSpec;
+import fr.unedic.cali.dom.Individu;
+import fr.unedic.cali.parcours.ParcoursPopulationSpec;
+import fr.unedic.cali.parcours.population.ParcoursPopulationReexecution;
+import fr.unedic.util.services.ContexteService;
+import fr.unedic.util.temps.Damj;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class PopulationRepriseStockIN0902175
+  extends PopulationAbstraite
+{
+  private static final String LIBELLE_POPULATION = "IN0902175 - delai attente a tort";
+  private static final int PRIORITE = 760;
+  private static final String REQUETE = "SELECT distinct VUE.CXALAF  FROM  ((select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0N_01CEP_ADM CADM INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CADM.CXASS AND D.CXALAF = CADM.CXALAF AND D.CEPA_ID = CADM.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL) UNION(select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0P_01CEP_REP CREP INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CREP.CXASS AND D.CXALAF = CREP.CXALAF AND D.CEPR_ID = CREP.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL) UNION(select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0Q_01CEP_REV CREV INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CREV.CXASS AND D.CXALAF = CREV.CXALAF AND D.CEPR_ID = CREV.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL )) VUE INNER JOIN P1201L_CALEXEAVANT CALA ON VUE.CXASS = CALA.CXASS AND VUE.CXALAF = CALA.CXALAF AND VUE.CALEXEAVANT_ID = CALA.CALEXEAVANT_ID INNER JOIN P1201K_ETATDJAVANT ETATA ON CALA.CXASS = ETATA.CXASS AND CALA.CXALAF = ETATA.CXALAF AND CALA.FK_ETATDJAVANT_ID = ETATA.ETATDJAVANT_ID INNER JOIN P1200Z_PBJCNCP PBJC ON VUE.CXASS = PBJC.CXASS AND VUE.CXALAF = PBJC.CXALAF WHERE VUE.CALEXEAVANT_ID IS NOT NULL AND VUE.CALEXEAVANT_ID <> 0 AND VUE.DT_DEB_DIFF_CTDL IS NOT NULL AND VUE.DT_FIN_DIFF_CTDL IS NOT NULL AND VUE.DT_DEB_DIFF_CTDL != ETATA.PERIODE_DELAI_D  AND ETATA.RLQT_DELAI_ATTENTE > 0 AND PBJC.DFPJB = ETATA.PERIODE_DELAI_F AND (CSCPK0 = 'TD' OR CSCPK1 = 'TD' OR CSCPK2 = 'TD'  OR CSCPK3 = 'TD' OR CSCPK4 = 'TD' OR CSCPK5 = 'TD'   OR CSCPK6 = 'TD' OR CSCPK7 = 'TD' OR CSCPK8 = 'TD'   OR CSCPK9 = 'TD') AND VUE.CXASS = ?  AND VUE.CXALAF >= ?  AND VUE.CXALAF <= ? WITH UR;";
+  private static final int CODE_ASSEDIC = 1;
+  private static final int ID_INF = 2;
+  private static final int ID_SUP = 3;
+  private static final int COLONNE_CXALAF = 1;
+  
+  public PopulationRepriseStockIN0902175()
+  {
+    setId("IN0902175 - delai attente a tort".hashCode());
+    setTopSelection(" ");
+    setPriorite(760);
+    setNombreIndividusSelectionnes(0);
+    setCodeConsequenceSelection(" ");
+    setLibelle("IN0902175 - delai attente a tort");
+    setConsequenceFinanciereRecalcul(" ");
+    setMaxCodeConsequenceSelection(" ");
+  }
+  
+  public Long getCxalaf(ResultSet rs)
+    throws SQLException
+  {
+    return Long.valueOf(rs.getLong(1));
+  }
+  
+  public Damj getDateReexecution(ResultSet rs, Individu individu)
+    throws SQLException
+  {
+    return PopulationSpec.DATE_LIMITE_NON_REEXECUTION;
+  }
+  
+  public String getRequete()
+  {
+    return "SELECT distinct VUE.CXALAF  FROM  ((select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0N_01CEP_ADM CADM INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CADM.CXASS AND D.CXALAF = CADM.CXALAF AND D.CEPA_ID = CADM.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL) UNION(select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0P_01CEP_REP CREP INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CREP.CXASS AND D.CXALAF = CREP.CXALAF AND D.CEPR_ID = CREP.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL) UNION(select D.CXASS, D.CXALAF, D.CALEXEAVANT_ID,  DT_DEB_DIFF_CTDL, DT_FIN_DIFF_CTDL FROM P12A0Q_01CEP_REV CREV INNER JOIN P12A0C_01DOSEX D ON D.CXASS = CREV.CXASS AND D.CXALAF = CREV.CXALAF AND D.CEPR_ID = CREV.CEP_ID WHERE DT_DEB_DIFF_CTDL IS NOT NULL  AND DT_FIN_DIFF_CTDL IS NOT NULL )) VUE INNER JOIN P1201L_CALEXEAVANT CALA ON VUE.CXASS = CALA.CXASS AND VUE.CXALAF = CALA.CXALAF AND VUE.CALEXEAVANT_ID = CALA.CALEXEAVANT_ID INNER JOIN P1201K_ETATDJAVANT ETATA ON CALA.CXASS = ETATA.CXASS AND CALA.CXALAF = ETATA.CXALAF AND CALA.FK_ETATDJAVANT_ID = ETATA.ETATDJAVANT_ID INNER JOIN P1200Z_PBJCNCP PBJC ON VUE.CXASS = PBJC.CXASS AND VUE.CXALAF = PBJC.CXALAF WHERE VUE.CALEXEAVANT_ID IS NOT NULL AND VUE.CALEXEAVANT_ID <> 0 AND VUE.DT_DEB_DIFF_CTDL IS NOT NULL AND VUE.DT_FIN_DIFF_CTDL IS NOT NULL AND VUE.DT_DEB_DIFF_CTDL != ETATA.PERIODE_DELAI_D  AND ETATA.RLQT_DELAI_ATTENTE > 0 AND PBJC.DFPJB = ETATA.PERIODE_DELAI_F AND (CSCPK0 = 'TD' OR CSCPK1 = 'TD' OR CSCPK2 = 'TD'  OR CSCPK3 = 'TD' OR CSCPK4 = 'TD' OR CSCPK5 = 'TD'   OR CSCPK6 = 'TD' OR CSCPK7 = 'TD' OR CSCPK8 = 'TD'   OR CSCPK9 = 'TD') AND VUE.CXASS = ?  AND VUE.CXALAF >= ?  AND VUE.CXALAF <= ? WITH UR;";
+  }
+  
+  public void preparerStatement(PreparedStatement statement, String codeAssedic, String idInf, String idSup, ContexteService contexteService)
+    throws SQLException
+  {
+    statement.setString(1, codeAssedic);
+    statement.setString(2, idInf);
+    statement.setString(3, idSup);
+  }
+  
+  public ParcoursPopulationSpec getParcours()
+  {
+    return new ParcoursPopulationReexecution();
+  }
+}
+
+/* Location:
+ * Qualified Name:     PopulationRepriseStockIN0902175
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

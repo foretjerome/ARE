@@ -1,0 +1,113 @@
+package fr.unedic.cali.autresdoms.cohab.dom.spec;
+
+public abstract interface ConstantesCohab
+{
+  public static final String EXAMEN_ARI = "ARI_01";
+  public static final String EXAMEN_ARI_BANALISEE = "ARI_02";
+  public static final String EXAMEN_ASU_SUITE_IDE = "ASU_01";
+  public static final String EXAMEN_ASU_DEMANDE_EXPRESSE = "ASU_02";
+  public static final String EXAMEN_ASU_FIN_DROIT_SUITE_REPRISE_NON_SAISONNIERE = "ASU_03";
+  public static final String EXAMEN_ASU_QUESTIONNAIRE_PASSAGE_CP_SUITE_REJET_DV = "ASU_04";
+  public static final String EXAMEN_ASU_DEMANDE_AF_CNE = "ASU_05";
+  public static final String EXAMEN_ASU_DEMANDE_MAINTIEN = "ASU_06";
+  public static final String EXAMEN_ASU_DEMANDE_REVISION = "ASU_07";
+  public static final String EXAMEN_ASU_FIN_DROIT_SPECTACLE = "ASU_08";
+  public static final String EXAMEN_APS_SUITE_REJET_ASU = "ASU_09";
+  public static final String EXAMEN_AT_AFD_SUITE_REJET_ASU = "ASU_10";
+  public static final String EXAMEN_APS_FIN_DROIT_SPECTACLE = "ASU_11";
+  public static final String EXAMEN_AT_AFD_FIN_DROIT_SPECTACLE = "ASU_12";
+  public static final String EXAMEN_ARE_EFE = "ASU_13";
+  public static final String EXAMEN_APS_EFE = "ASU_14";
+  public static final String EXAMEN_AT_AFD_EFE = "ASU_15";
+  public static final String EXAMEN_ASU_DEMANDE_ASR = "ASU_16";
+  public static final String EXAMEN_ASU_FIN_DROIT_ASR = "ASU_17";
+  public static final String EXAMEN_ASU_DEMANDE_ATP = "ASU_18";
+  public static final String EXAMEN_ASU_DEMANDE_FIN_ATP = "ASU_19";
+  public static final String EXAMEN_ASU_DEMANDE_ATP_SUITE_BASCULE = "ASU_20";
+  public static final String EXAMEN_ASU_DEMANDE_ASSOCIEE = "ASU_21";
+  public static final String EXAMEN_ASU_DEMANDE_ANTECEDENT = "ASU_22";
+  public static final String EXAMEN_ASU_DEMANDE_ANTECEDENT_EN_COURS_DOSSIER = "ASU_23";
+  public static final String EXAMEN_ASU_DEMANDE_ASP = "ASU_24";
+  public static final String EXAMEN_ASU_DEMANDE_FIN_ASP = "ASU_25";
+  public static final String EXAMEN_ASU_DEMANDE_RECHARGEMENT = "ASU_29";
+  public static final String EXAMEN_ASU_DEMANDE_REVISION_2014 = "ASU_28";
+  public static final String EXAMEN_ASU_DEMANDE_REPRISE_VERSEMENT = "ASU_27";
+  public static final String EXAMEN_ASU_DEMANDE_DV_FIL_EAU = "ASU_30";
+  public static final String EXAMEN_ASU_CLAUSE_RATTRAPAGE_SPECTACLE = "ASU_31";
+  public static final String EXAMEN_SOL_RENOUVELLEMENT_ASS = "SOL_01";
+  public static final String EXAMEN_SOL_RENOUVELLEMENT_AER = "SOL_02";
+  public static final String EXAMEN_SOL_FIN_DROIT_ASU = "SOL_03";
+  public static final String EXAMEN_SOL_FIN_DROIT_SP = "SOL_04";
+  public static final String EXAMEN_SOL_CATEGORIE_PARTICULIERE_SUITE_REJET_ASU = "SOL_05";
+  public static final String EXAMEN_SOL_DROIT_OPTION_ASS = "SOL_06";
+  public static final String EXAMEN_SOL_DEMANDE_EXPRESSE_PLUS_DE_50ANS = "SOL_07";
+  public static final String EXAMEN_SOL_DEMANDE_AER = "SOL_08";
+  public static final String EXAMEN_SOL_REPRISE_SOLIDARITE_SUITE_REJET_ASU = "SOL_09";
+  public static final String EXAMEN_SOL_REMISE_EN_COURS_ASS = "SOL_10";
+  public static final String EXAMEN_SOL_RENOUVELLEMENT_ATA = "SOL_11";
+  public static final String EXAMEN_SOL_REMISE_EN_COURS_ATA = "SOL_12";
+  public static final String EXAMEN_SOL_ATA_SUITE_REJET_ASU = "SOL_13";
+  public static final String EXAMEN_SOL_ATA_SUITE_IDE = "SOL_14";
+  public static final String EXAMEN_SOL_ATA_SUITE_FD_ASU = "SOL_15";
+  public static final String EXAMEN_SOL_ATA_SUITE_FD_SP = "SOL_16";
+  public static final String EXAMEN_SOL_AEPE_SUITE_REJET_ASS = "SOL_17";
+  public static final String EXAMEN_SOL_AEPE_SUITE_REJET_ASU = "SOL_18";
+  public static final String EXAMEN_SOL_AEPE_SUIVI = "SOL_19";
+  public static final String EXAMEN_SOL_DEMANDE_ANTECEDENT = "SOL_20";
+  public static final String EXAMEN_SOL_DEMANDE_ATS = "SOL_21";
+  public static final String EXAMEN_SOL_MAYOTTE_FIN_DROIT_ASU = "SOL_22";
+  public static final String EXAMEN_SOL_MAYOTTE_REPRISE = "SOL_23";
+  public static final String EXAMEN_SOL_MAYOTTE_CPA = "SOL_24";
+  public static final String EXAMEN_SOL_DEMANDE_ASS_SUITE_DECHEANCE = "SOL_26";
+  public static final String EXAMEN_RBF_DAF_ANPE = "RBF_01";
+  public static final String EXAMEN_RBF_DAF_ASSEDIC = "RBF_02";
+  public static final String EXAMEN_RBF_AIDE_MOBILITE = "RBF_03";
+  public static final String EXAMEN_RBF_AGEPI = "RBF_04";
+  public static final String EXAMEN_RBF_AIDES_BAN = "RBF_05";
+  public static final String EXAMEN_SOL_DEMANDE_PTS = "SOL_25";
+  public static final String EXAMEN_FOR_DEMANDE_RPS = "FOR_01";
+  public static final String EXAMEN_FOR_DEMANDE_AFF = "FOR_02";
+  public static final String EXAMEN_FOR_DEMANDE_RFPE = "FOR_03";
+  public static final String EXAMEN_FOR_DEMANDE_CSP = "FOR_04";
+  public static final String EXAMEN_INR_DEMANDE_ACCCRE = "INR_01";
+  public static final String EXAMEN_INR_DEMANDE_ARCE = "INR_02";
+  public static final String EXAMEN_INR_DEMANDE_ADR = "INR_03";
+  public static final String EXAMEN_INR_DEMANDE_PAR = "INR_04";
+  public static final String FNE_PAS_REPONSE = " ";
+  public static final String FNE_PAS_DE_REFUS = "N";
+  public static final String FNE_REFUS = "O";
+  public static final String EXAMEN_PRR_FNE = "PRR_01";
+  public static final String EXAMEN_DEC = "DEC_01";
+  public static final int SITUATION_FAMILIALE_INDIVIDUEL = 1;
+  public static final int SITUATION_FAMILIALE_COUPLE = 2;
+  public static final String TYPE_DEMANDE_DAL = "LE1D";
+  public static final String TYPE_DEMANDE_RNV = "LK1B";
+  public static final String TYPE_DEMANDE_SO = "";
+  public static final String ZONE_PRESENCE_AE_O = "O";
+  public static final String ZONE_PRESENCE_AE_N = "N";
+  public static final String ZONE_PRESENCE_AE_I = "I";
+  public static final String ETAT_LIQUIDABLE_OUI = "O";
+  public static final String ETAT_LIQUIDABLE_RENDU = "R";
+  public static final String ETAT_LIQUIDABLE_CONSERVE = "C";
+  public static final int ENVELOPPE_AIDE_STATUT_PREVISIONNEL = 0;
+  public static final int ENVELOPPE_AIDE_STATUT_EFFECTIF = 1;
+  public static final int ENVELOPPE_AIDE_STATUT_NON_RENSEIGNE = 9;
+  public static final String AF_ETAT_VALIDE = "V";
+  public static final String AF_ETAT_ENREGISTRE = "E";
+  public static final String AF_ETAT_ANNULE = "A";
+  public static final String PROPOSITION_CRP_CSP_FAITE = "O";
+  public static final String PROPOSITION_CRP_CSP_NON_FAITE = "N";
+  public static final String PROPOSITION_CTP_FAITE = "C";
+  public static final String PROPOSITION_CTP_NON_FAITE = "T";
+  public static final String DEPLOIEMENT_OPI_NON = "N";
+  public static final String DEPLOIEMENT_OPI_14SI1 = "1";
+  public static final String DEPLOIEMENT_OPI_14SI2 = "2";
+  public static final String DEPLOIEMENT_OPI_14SI3 = "3";
+  public static final String DEPLOIEMENT_OPI_NPDE = "4";
+}
+
+/* Location:
+ * Qualified Name:     ConstantesCohab
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

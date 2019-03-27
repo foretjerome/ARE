@@ -1,0 +1,116 @@
+package fr.unedic.cali.calcul.pbjc.cons;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ConstantesEnquetePbjcNcp
+{
+  public static final int SUIVI_TG_DEPART_RETRAITE_TRIM_INCONNUS = 1;
+  public static final int SUIVI_TG_DATE_DE_RETRAITE_CERTIFIEE = 2;
+  public static final int SUIVI_TG_SIGNALEMENT_RETRAITE_ATTEINTE = 3;
+  public static final int SUIVI_TG_PREMIER_MOIS_AR = 4;
+  public static final int SUIVI_TG_PJI_PERIODE_MAINTIEN_EESSI = 31;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_SAUF_A8A10 = 5;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_A8A10 = 6;
+  public static final int SUIVI_ASU_MAINTIEN_ATTENTE_CP = 7;
+  public static final int SUIVI_ASU_MAINTIEN_ACCORDE = 8;
+  public static final int SUIVI_ASU_MAINTIEN_ABSENCE_INFO = 9;
+  public static final int SUIVI_ASU_APPART_OD_ANT_POUR_MAINTIEN = 10;
+  public static final int SUIVI_ASU_CUMUL_18_MOIS_AR = 11;
+  public static final int SUIVI_ASU_INTERRUPTION_PENSION_INVALIDITE = 12;
+  public static final int SUIVI_ASU_REPRISE_PAIEMENT_INVALIDITE = 13;
+  public static final int SUIVI_ASU_RENOUVELLEMENT_SEMESTRIEL = 14;
+  public static final int SUIVI_ASU_INTERMEDIAIRE = 15;
+  public static final int SUIVI_ASU_INTERMEDIAIRE_120EME_J = 16;
+  public static final int SUIVI_ASU_MAINTIEN_DETECTION = 25;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_RCT_SUITE_SINISTRE_OU_CALAMITE = 26;
+  public static final int SUIVI_ASU_FIN_ASR_AVEC_RELIQUAT_NON_NUL = 27;
+  public static final int SUIVI_ASU_FIN_ASR_ARE_SANS_RELIQUAT_ARE = 28;
+  public static final int SUIVI_ASU_FIN_ASR = 29;
+  public static final int DATE_LIMITE_INDEMNISATION_ATP = 30;
+  public static final int SUIVI_ASU_FIN_ASP_AVEC_RELIQUAT_NON_NUL = 34;
+  public static final int SUIVI_ASU_FIN_ASP_ARE_SANS_RELIQUAT_ARE = 35;
+  public static final int SUIVI_ASU_FIN_ASP = 36;
+  public static final int SUIVI_ASU_DRV = 37;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_RECHARGEMENT = 38;
+  public static final int SUIVI_ASU_DRV_NOUVEAU_DISPOSITIF = 39;
+  public static final int SUIVI_ASU_FIN_DUREE_POSTPRIME = 40;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_A8A10_DATE_LIMITE_INDEMNISATION = 41;
+  public static final int SUIVI_ASU_PRODUCTION_COURRIER_KC2N = 42;
+  public static final int SUIVI_ASU_PRODUCTION_COURRIER_KC6Q = 47;
+  public static final int SUIVI_ASU_FIN_DE_DROIT_ASS_AAH = 43;
+  public static final int SUIVI_ASU_FIN_DISPONIBILITE = 50;
+  public static final int SUIVI_ASU_ORDONNANCEMENT_EXAMEN = 48;
+  public static final int SUIVI_SOL_EXAMEN_ANNUEL_AER = 17;
+  public static final int SUIVI_SOL_EXAMEN_ANNUEL_ASS_AI = 18;
+  public static final int SUIVI_SOL_CONTROLE_SEMESTRIEL_ASS_ET_ATA = 19;
+  public static final int SUIVI_SOL_CONTROLE_SEMESTRIEL_AI = 20;
+  public static final int SUIVI_SOL_AR_CUMUL_610_HEURES = 21;
+  public static final int SUIVI_SOL_RESSOURCES_SEMESTRIELLES_ASS_ET_ATA = 22;
+  public static final int SUIVI_SOL_ATTEINTE_12MOIS_OU_750_HEURES = 23;
+  public static final int SUIVI_SOL_ATTEINTE_12MOIS_ET_750_HEURES = 24;
+  public static final int SUIVI_PRR_SITU_ACTIVITE_REDUITE_OD_FNE = 32;
+  public static final int SUIVI_PRR_SITU_ENVOI_DAS_OD_FNE_OU_ARPE = 33;
+  public static final int SUIVI_ALLONGEMENT_AREF = 44;
+  public static final Map LIB_TYPE_SITUATION_SUIVI = new HashMap();
+  
+  static
+  {
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(1), "TG DEPART RETRAITE TRIM INCONNUS");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(2), "TG DATE DE RETRAITE CERTIFIEE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(3), "TG SIGNALEMENT RETRAITE ATTEINTE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(4), "TG PREMIER MOIS AR");
+    
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(5), "SUIVI_ASU_FIN_DE_DROIT_SAUF_A8A10");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(41), "SUIVI_ASU_FDD_A8A10_CONTEXTE_CRA");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(42), "SUIVI_ASU_PRODUCTION_COURRIER_KC2N");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(6), "SUIVI_ASU_FIN_DE_DROIT_A8A10");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(7), "SUIVI_ASU_MAINTIEN_ATTENTE_CP");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(8), "SUIVI_ASU_MAINTIEN_ACCORDE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(9), "SUIVI_ASU_MAINTIEN_ABSENCE_INFO");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(10), "SUIVI_ASU_APPART_OD_ANT_POUR_MAINTIEN");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(11), "SUIVI_ASU_CUMUL_18_MOIS_AR");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(12), "SUIVI_ASU_INTERRUPTION_PENSION_INVALIDITE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(13), "SUIVI_ASU_REPRISE_PAIEMENT_INVALIDITE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(14), "SUIVI_ASU_RENOUVELLEMENT_SEMESTRIEL");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(15), "SUIVI_ASU_INTERMEDIAIRE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(16), "SUIVI_ASU_INTERMEDIAIRE_120EME_J");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(25), "SUIVI_ASU_MAINTIEN_DETECTION");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(27), "SUIVI_ASU_FIN_ASR_AVEC_RELIQUAT_NON_NUL");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(28), "SUIVI_ASU_FIN_ASR_ARE_SANS_RELIQUAT_ARE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(29), "SUIVI_ASU_FIN_ASR");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(34), "SUIVI_ASU_FIN_ASP_AVEC_RELIQUAT_NON_NUL");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(35), "SUIVI_ASU_FIN_ASP_ARE_SANS_RELIQUAT_ARE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(36), "SUIVI_ASU_FIN_ASP");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(30), "DATE_LIMITE_INDEMNISATION_ATP");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(26), "FIN_DROIT_RCT_SUITE_SINISTRE_OU_CALAMITE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(47), "SUIVI_ASU_INSTALLATION_PANS");
+    
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(17), "SUIVI_SOL_EXAMEN_ANNUEL_AER");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(18), "SUIVI_SOL_EXAMEN_ANNUEL_ASS_AI");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(19), "SUIVI_SOL_CONTROLE_SEMESTRIEL_ASS");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(20), "SUIVI_SOL_CONTROLE_SEMESTRIEL_AI");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(21), "SUIVI_SOL_AR_CUMUL_610_HEURES");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(22), "SUIVI_SOL_RESSOURCES_SEMESTRIELLES_ASS");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(23), "SUIVI_SOL_ATTEINTE_12MOIS_OU_750_HEURES");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(24), "SUIVI_SOL_ATTEINTE_12MOIS_ET_750_HEURES");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(31), "SUIVI_TG_PJI_MAINTIEN_EESSI");
+    
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(33), "SUIVI_PRR_SITU_ENVOI_DAS_OD_FNE_OU_ARPE");
+    
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(37), "SUIVI_ASU_EXAMEN_DRV");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(38), "SUIVI_ASU_FIN_DROIT_POUR_RECHARGEMENT");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(39), "SUIVI_ASU_EXAMEN_DRV");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(40), "SUIVI_ASU_FIN_DUREE_POSTPRIME");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(43), "SUIVI_ASU_FIN_DE_DROIT_ASS_AAH");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(50), "SUIVI_ASU_FIN_DISPONIBILITE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(48), "SUIVI_ASU_FCT_ACT_CONSERVE");
+    LIB_TYPE_SITUATION_SUIVI.put(Integer.toString(44), "SUIVI_ALLONGEMENT_AREF");
+  }
+}
+
+/* Location:
+ * Qualified Name:     ConstantesEnquetePbjcNcp
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

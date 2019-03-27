@@ -1,0 +1,8 @@
+# JDO related ANT tasks
+enhance	xcalia.lido.tools.ant.Enhance
+define-schema xcalia.lido.tools.ant.DefineSchema
+
+# Versant database related ANT tasks
+vsntRemoveDB	xcalia.lido.tools.ant.versant.RemoveDB
+vsntMakeDB	    xcalia.lido.tools.ant.versant.MakeDB
+vsntCreateDB	xcalia.lido.tools.ant.versant.CreateDB

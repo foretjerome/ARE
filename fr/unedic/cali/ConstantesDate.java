@@ -1,0 +1,121 @@
+package fr.unedic.cali;
+
+import fr.unedic.util.temps.Damj;
+
+public final class ConstantesDate
+{
+  public static final int AN_1900 = 1900;
+  public static final int AN_1930 = 1930;
+  public static final int AN_1933 = 1933;
+  public static final int AN_1934 = 1934;
+  public static final int AN_1935 = 1935;
+  public static final int AN_1936 = 1936;
+  public static final int AN_1937 = 1937;
+  public static final int AN_1938 = 1938;
+  public static final int AN_1939 = 1939;
+  public static final int AN_1940 = 1940;
+  public static final int AN_1941 = 1941;
+  public static final int AN_1942 = 1942;
+  public static final int AN_1943 = 1943;
+  public static final int AN_1944 = 1944;
+  public static final int AN_1945 = 1945;
+  public static final int AN_1946 = 1946;
+  public static final int AN_1947 = 1947;
+  public static final int AN_1948 = 1948;
+  public static final int AN_1949 = 1949;
+  public static final int AN_1950 = 1950;
+  public static final int AN_1951 = 1951;
+  public static final int AN_1952 = 1952;
+  public static final int AN_1953 = 1953;
+  public static final int AN_1954 = 1954;
+  public static final int AN_1955 = 1955;
+  public static final int AN_1956 = 1956;
+  public static final int AN_1957 = 1957;
+  public static final int AN_1958 = 1958;
+  public static final int AN_1959 = 1959;
+  public static final int AN_1960 = 1960;
+  public static final int AN_1961 = 1961;
+  public static final int AN_1970 = 1970;
+  public static final int AN_1989 = 1989;
+  public static final int AN_1990 = 1990;
+  public static final int AN_1991 = 1991;
+  public static final int AN_1992 = 1992;
+  public static final int AN_1993 = 1993;
+  public static final int AN_1994 = 1994;
+  public static final int AN_1995 = 1995;
+  public static final int AN_1996 = 1996;
+  public static final int AN_1997 = 1997;
+  public static final int AN_1998 = 1998;
+  public static final int AN_1999 = 1999;
+  public static final int AN_2000 = 2000;
+  public static final int AN_2001 = 2001;
+  public static final int AN_2002 = 2002;
+  public static final int AN_2003 = 2003;
+  public static final int AN_2004 = 2004;
+  public static final int AN_2005 = 2005;
+  public static final int AN_2006 = 2006;
+  public static final int AN_2007 = 2007;
+  public static final int AN_2008 = 2008;
+  public static final int AN_2009 = 2009;
+  public static final int AN_2010 = 2010;
+  public static final int AN_2011 = 2011;
+  public static final int AN_2012 = 2012;
+  public static final int AN_2013 = 2013;
+  public static final int AN_2014 = 2014;
+  public static final int AN_2015 = 2015;
+  public static final int AN_2016 = 2016;
+  public static final int AN_2017 = 2017;
+  public static final int AN_2018 = 2018;
+  public static final int JANVIER = 1;
+  public static final int FEVRIER = 2;
+  public static final int MARS = 3;
+  public static final int AVRIL = 4;
+  public static final int MAI = 5;
+  public static final int JUIN = 6;
+  public static final int JUILLET = 7;
+  public static final int AOUT = 8;
+  public static final int SEPTEMBRE = 9;
+  public static final int OCTOBRE = 10;
+  public static final int NOVEMBRE = 11;
+  public static final int DECEMBRE = 12;
+  public static final int JOUR_1 = 1;
+  public static final int JOUR_2 = 2;
+  public static final int JOUR_3 = 3;
+  public static final int JOUR_4 = 4;
+  public static final int JOUR_5 = 5;
+  public static final int JOUR_6 = 6;
+  public static final int JOUR_7 = 7;
+  public static final int JOUR_8 = 8;
+  public static final int JOUR_9 = 9;
+  public static final int JOUR_10 = 10;
+  public static final int JOUR_11 = 11;
+  public static final int JOUR_12 = 12;
+  public static final int JOUR_13 = 13;
+  public static final int JOUR_14 = 14;
+  public static final int JOUR_15 = 15;
+  public static final int JOUR_16 = 16;
+  public static final int JOUR_17 = 17;
+  public static final int JOUR_18 = 18;
+  public static final int JOUR_19 = 19;
+  public static final int JOUR_20 = 20;
+  public static final int JOUR_21 = 21;
+  public static final int JOUR_22 = 22;
+  public static final int JOUR_23 = 23;
+  public static final int JOUR_24 = 24;
+  public static final int JOUR_25 = 25;
+  public static final int JOUR_26 = 26;
+  public static final int JOUR_27 = 27;
+  public static final int JOUR_28 = 28;
+  public static final int JOUR_29 = 29;
+  public static final int JOUR_30 = 30;
+  public static final int JOUR_31 = 31;
+  public static final Damj DATE_2016_JANVIER_1 = new Damj(2016, 1, 1);
+  public static final Damj DATE_2016_AVRIL_1 = new Damj(2016, 4, 1);
+  public static final Damj DATE_2017_AVRIL_1 = new Damj(2017, 4, 1);
+}
+
+/* Location:
+ * Qualified Name:     ConstantesDate
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */
